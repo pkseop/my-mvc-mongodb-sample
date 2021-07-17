@@ -31,6 +31,8 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 
 	implementation group: 'com.google.guava', name: 'guava', version: '30.1.1-jre'
+	implementation group: 'org.apache.poi', name: 'poi-ooxml', version: '5.0.0'
+
 
 }
 
