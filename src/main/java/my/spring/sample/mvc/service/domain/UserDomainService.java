@@ -1,6 +1,7 @@
 package my.spring.sample.mvc.service.domain;
 
 import my.spring.sample.mvc.collection.User;
+import my.spring.sample.mvc.exception.BadRequestException;
 import my.spring.sample.mvc.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,10 +36,10 @@ public class UserDomainService {
         return this.save(user);
     }
 
-    public User get(String id) {
+    public User get(String id) throws BadRequestException {
         Optional<User> op = userRepository.findById(id);
         if(op.isEmpty())
-            throw new RuntimeException("Can't find user with id [" + id + "].");
+            throw new BadRequestException("Can't find user with id [" + id + "].");
         return op.get();
     }
 
