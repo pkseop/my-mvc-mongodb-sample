@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/user")
 public class UserController {
@@ -19,7 +21,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public ResponseEntity<?> create(@RequestBody UserCreateRequest body) throws BadRequestException {
+    public ResponseEntity<?> create(@RequestBody @Valid UserCreateRequest body) throws BadRequestException {
         User user = userService.create(body);
         return ResponseUtils.ok(user);
     }
