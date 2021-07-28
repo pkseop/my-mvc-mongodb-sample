@@ -7,6 +7,7 @@ import java.text.NumberFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.Random;
+import java.util.UUID;
 
 public class StringUtils {
 
@@ -16,6 +17,10 @@ public class StringUtils {
 
     public static String genObjectId() {
         return ObjectId.get().toString();
+    }
+
+    public static String genUuid() {
+        return UUID.randomUUID().toString();
     }
 
     public static String genRandom6Digit() {
