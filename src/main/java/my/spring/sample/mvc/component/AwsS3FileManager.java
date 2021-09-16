@@ -5,7 +5,7 @@ import com.amazonaws.services.s3.model.*;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
-import my.spring.sample.mvc.utils.CastUtils;
+import my.spring.sample.mvc.utils.CastUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
@@ -149,7 +149,7 @@ public class AwsS3FileManager {
     public Object getObject(String key) throws IOException {
         S3Object res = s3client.getObject(new GetObjectRequest(bucketName, key));
         String result = retrieveTextFromStream(res.getObjectContent());
-        return CastUtils.jsonToObj(result);
+        return CastUtil.jsonToObj(result);
     }
 
     public Object getObjectGzip(String key) throws IOException {
@@ -157,7 +157,7 @@ public class AwsS3FileManager {
 
         S3Object res = s3client.getObject(getObjectRequest);
         String result = retrieveTextFromStream(res.getObjectContent());
-        return CastUtils.jsonToObj(result);
+        return CastUtil.jsonToObj(result);
     }
 
     private String retrieveTextFromStream(InputStream input) throws IOException {

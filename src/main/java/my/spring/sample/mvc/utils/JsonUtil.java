@@ -12,7 +12,7 @@ import java.lang.reflect.Method;
 import java.util.*;
 
 @Slf4j
-public class JsonUtils {
+public class JsonUtil {
 
     /**
      * Json을 Map 형태로 변환

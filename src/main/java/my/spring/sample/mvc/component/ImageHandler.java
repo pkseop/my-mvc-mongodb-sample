@@ -5,7 +5,7 @@ import com.google.common.collect.Lists;
 import my.spring.sample.mvc.consts.Constants;
 import my.spring.sample.mvc.model.ImageModel;
 import my.spring.sample.mvc.model.Dimension;
-import my.spring.sample.mvc.utils.StringUtils;
+import my.spring.sample.mvc.utils.StringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
@@ -38,7 +38,7 @@ public class ImageHandler {
         String data = image.replaceAll("^data:image\\/\\w+;base64,", "");
         byte[] byteData = Base64.getDecoder().decode(data);
         Dimension imageDimension = this.getImageDimension(byteData);
-        String fileName = StringUtils.genUuid();
+        String fileName = StringUtil.genUuid();
 
         String key = prefix + "/" + fileName + "." + imageFormat;
         s3FileManager.uploadImage(key, byteData, imageFormat);

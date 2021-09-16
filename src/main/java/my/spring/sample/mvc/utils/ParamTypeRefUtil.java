@@ -8,7 +8,7 @@ import org.springframework.core.ParameterizedTypeReference;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 
-public class ParamTypeRefUtils {
+public class ParamTypeRefUtil {
 
     public static<T> ParameterizedTypeReference<DataListWithPageResponse<T>> listWithPage(Class<T> clazz) {
         return new ParameterizedTypeReference<DataListWithPageResponse<T>>(){

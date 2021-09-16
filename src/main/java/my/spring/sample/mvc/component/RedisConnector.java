@@ -1,7 +1,7 @@
 package my.spring.sample.mvc.component;
 
 import lombok.extern.slf4j.Slf4j;
-import my.spring.sample.mvc.utils.JsonUtils;
+import my.spring.sample.mvc.utils.JsonUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
@@ -94,7 +94,7 @@ public class RedisConnector {
         if(getRedisTemplate() != null) {
             Map<String, String> castMap = new HashMap<String, String>();
             for (Map.Entry<String, Map<String, Object>> set : map.entrySet()) {
-                castMap.put(set.getKey(), JsonUtils.convertMapToJson(set.getValue()));
+                castMap.put(set.getKey(), JsonUtil.convertMapToJson(set.getValue()));
             }
             redisTemplate.opsForHash().putAll(key, castMap);
         }
@@ -104,7 +104,7 @@ public class RedisConnector {
         if(getRedisTemplate() != null) {
             Map<String, String> castMap = new HashMap<String, String>();
             for (Map.Entry<String, Object> set : map.entrySet()) {
-                castMap.put(set.getKey(), JsonUtils.convertMapToJson((Map<String, Object>)set.getValue()));
+                castMap.put(set.getKey(), JsonUtil.convertMapToJson((Map<String, Object>)set.getValue()));
             }
             redisTemplate.opsForHash().putAll(key, castMap);
         }
@@ -114,7 +114,7 @@ public class RedisConnector {
         if(getRedisTemplate() != null) {
             Map<String, String> castMap = new HashMap<String, String>();
             for (Map.Entry<Object, Object> set : map.entrySet()) {
-                castMap.put(set.getKey().toString(), JsonUtils.convertObjectMapToJson((Map<Object, Object>)set.getValue()));
+                castMap.put(set.getKey().toString(), JsonUtil.convertObjectMapToJson((Map<Object, Object>)set.getValue()));
             }
             redisTemplate.opsForHash().putAll(key, castMap);
         }

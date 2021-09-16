@@ -4,7 +4,7 @@ import com.google.common.base.Strings;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.mongodb.core.query.Criteria;
 
-public class MongoQueryUtils {
+public class MongoQueryUtil {
 
     public static Criteria addCriteria(Criteria criteria, String name) {
         if(criteria == null) {

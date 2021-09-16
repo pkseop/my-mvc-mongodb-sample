@@ -2,7 +2,7 @@ package my.spring.sample.mvc.utils;
 
 import org.apache.poi.xssf.usermodel.XSSFCell;
 
-public class PoiExcelUtils {
+public class PoiExcelUtil {
 
     public static String getCellValue(XSSFCell xssfCell) {
         if(xssfCell == null)

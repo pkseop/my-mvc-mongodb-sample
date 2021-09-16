@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.Map;
 
-public class ResponseUtils {
+public class ResponseUtil {
 
     public static Object message(String message) {
         Map<String, Object> map = Maps.newHashMap();

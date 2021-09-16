@@ -10,7 +10,7 @@ import java.nio.file.Files;
 import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
-public class CompressUtils {
+public class CompressUtil {
 
     private static final int BUF_SIZE = 16384;
 

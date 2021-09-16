@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-public class CastUtils {
+public class CastUtil {
 
     @SuppressWarnings("unchecked")
     public static Map<String, Object> toMap(Object obj) {

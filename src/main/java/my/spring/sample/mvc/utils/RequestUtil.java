@@ -4,7 +4,7 @@ import com.google.common.base.Strings;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class RequestUtils {
+public class RequestUtil {
 
     // AWS의 로드밸런서를 사용할 때에도 클라어인트 IP를 가져올 수 있다.
     public static String getClientIp(HttpServletRequest request) {
@@ -32,7 +32,7 @@ public class RequestUtils {
     }
 
     public static String getSubdomainFromOrigin(HttpServletRequest request) {
-        return StringUtils.extractSubdomain(request.getHeader("origin"));
+        return StringUtil.extractSubdomain(request.getHeader("origin"));
     }
 
     public static void verifyToken(HttpServletRequest request, String tokenOrg) throws RuntimeException {

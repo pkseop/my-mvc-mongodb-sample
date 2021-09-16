@@ -9,7 +9,7 @@ import java.util.Locale;
 import java.util.Random;
 import java.util.UUID;
 
-public class StringUtils {
+public class StringUtil {
 
     public static String escape(String str) {
         return str.replaceAll("([-/\\\\^$*+?.()|{}\\[\\]])", "\\\\$1");

@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Date;
 
-public class DateTimeUtils {
+public class DateTimeUtil {
 
     public static LocalDateTime getDaysAgoDateTime(Integer days) {
         Date now = new Date();

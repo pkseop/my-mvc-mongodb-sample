@@ -3,7 +3,7 @@ package my.spring.sample.mvc.utils;
 import my.spring.sample.mvc.model.Coords;
 import my.spring.sample.mvc.model.CoordsRange;
 
-public class GeoUtils {
+public class GeoUtil {
 
     public static Coords movePoint(double latitude, double longitude, double distanceInMeters, double bearing) {
         double brngRad = Math.toRadians(bearing);

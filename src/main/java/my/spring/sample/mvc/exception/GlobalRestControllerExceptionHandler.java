@@ -3,7 +3,7 @@ package my.spring.sample.mvc.exception;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;
-import my.spring.sample.mvc.utils.RequestUtils;
+import my.spring.sample.mvc.utils.RequestUtil;
 import org.apache.catalina.connector.ClientAbortException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +24,7 @@ public class GlobalRestControllerExceptionHandler {
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity validationExceptionHandler(HttpServletRequest request, MethodArgumentNotValidException ex)  {
         log.info("[EXCEPTION] Method argument not valid. URI: [{}], method: [{}], error message: [{}], from: [{}]",
-                new Object[]{request.getRequestURI(), request.getMethod(), ex.getMessage(), RequestUtils.getClientIp(request)});
+                new Object[]{request.getRequestURI(), request.getMethod(), ex.getMessage(), RequestUtil.getClientIp(request)});
 
         List<Map> errors = Lists.newArrayList();
         ex.getBindingResult().getFieldErrors().forEach(fieldError -> {
@@ -53,7 +53,7 @@ public class GlobalRestControllerExceptionHandler {
     })
     public ResponseEntity badRequestExceptionHandler(HttpServletRequest request, Exception ex) {
         log.info("[EXCEPTION] Bad request. URI: [{}], method: [{}], error message: [{}], from [{}]",
-                new Object[]{request.getRequestURI(), request.getMethod(), ex.getMessage(), RequestUtils.getClientIp(request)});
+                new Object[]{request.getRequestURI(), request.getMethod(), ex.getMessage(), RequestUtil.getClientIp(request)});
 
         return new ResponseEntity(
                 new ErrorResponse(
@@ -73,10 +73,10 @@ public class GlobalRestControllerExceptionHandler {
                 (ex instanceof IOException && ex.getMessage().contains("Broken pipe"))
         ) {
             log.info("[EXCEPTION] URI: [{}], method: [{}], Error message [{}], from [{}]",
-                    new Object[] {request.getRequestURI(), request.getMethod(), ex.getMessage(), RequestUtils.getClientIp(request)} );
+                    new Object[] {request.getRequestURI(), request.getMethod(), ex.getMessage(), RequestUtil.getClientIp(request)} );
         } else {
             log.error("Internal server error occurred. URI [{}], method: [{}], from [{}]",
-                    new Object[]{request.getRequestURI(), request.getMethod(), RequestUtils.getClientIp(request), ex});
+                    new Object[]{request.getRequestURI(), request.getMethod(), RequestUtil.getClientIp(request), ex});
         }
         return new ResponseEntity(
                 new ErrorResponse(
