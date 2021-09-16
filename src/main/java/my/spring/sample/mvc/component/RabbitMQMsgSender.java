@@ -23,9 +23,6 @@ public class RabbitMQMsgSender {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    @Value("${render.server.token}")
-    private String renderServerToken;
-
     private static String ENV = null;
 
     @PostConstruct
